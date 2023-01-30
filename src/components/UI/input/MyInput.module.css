@@ -1,0 +1,13 @@
+.myInput {
+    display: block;
+    outline: none;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid rgb(92, 92, 92);
+    border-radius: 7px;
+    transition: .3s;
+}
+
+.myInput:focus {
+    border-color: rgb(0, 174, 255);
+}

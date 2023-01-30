@@ -1,0 +1,38 @@
+.loader {
+    position: relative;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    background: rgb(110, 110, 110);
+
+    animation: 1s load infinite linear;
+}
+
+@keyframes load {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+        box-shadow: 20px 0 10px 3px rgb(60, 183, 255);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+        box-shadow: 20px 0 10px 3px rgb(160, 218, 251);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        box-shadow: 20px 0 10px 3px rgb(60, 183, 255);
+    }
+}

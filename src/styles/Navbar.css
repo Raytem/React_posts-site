@@ -1,0 +1,31 @@
+.navbar {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    background: rgb(75, 75, 75);
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: rgb(231, 231, 231);
+    margin-left: 25px;
+}
+
+.navbar__link.logout {
+    background: rgb(243, 243, 243);
+    color:rgb(41, 41, 41);
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.navbar__link:first-child {
+    margin-left: 0;
+}

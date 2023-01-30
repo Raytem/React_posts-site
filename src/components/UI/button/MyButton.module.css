@@ -1,0 +1,9 @@
+.myBtn {
+    display: block;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: rgb(73, 222, 83);
+    outline: none;
+    border: none;
+    border-radius: 7px;
+}
