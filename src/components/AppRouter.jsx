@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { privateRoutes, publicRoutes } from "../router";
 import { useContext } from "react";
@@ -9,9 +9,24 @@ function AppRouter() {
     const {isAuth, isLoading} = useContext(AuthContext);
 
     const startPage = useNavigate();
+    const location = useLocation()
     useEffect(() => {
-        isAuth ? startPage("/posts") : startPage("/login");
+        if(isAuth){
+            if(localStorage.getItem('pageLocation') !== undefined){
+                startPage(localStorage.getItem('pageLocation'))
+            }else{
+                startPage('/posts')
+            }
+        }else{
+            startPage("/login")
+        }
     }, [isAuth])
+
+    useEffect(() => {
+        if(location.pathname !== '/login' && location.pathname !== '/posts'){
+            localStorage.setItem('pageLocation', location.pathname)
+        }
+    }, [location])
 
     if (isLoading) {
         return <Loader/>
