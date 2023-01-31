@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MyButton from '../components/UI/button/MyButton';
 import MyInput from '../components/UI/input/MyInput';
 import { AuthContext } from '../context';
@@ -8,12 +9,13 @@ function Login() {
 
     const {isAuth, setIsAuth} = useContext(AuthContext);
 
+    const navigate = useNavigate;
     
-
     const login = e => {
         e.preventDefault();
         setIsAuth(true);
         localStorage.setItem('auth', 'true');
+        navigate("/posts");
     }
 
     return ( 

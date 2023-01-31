@@ -3,14 +3,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PostItem from './PostItem';
 import Loader from './UI/loader/Loader';
 
-function PostList({error, remove, posts, title}) {
-    if (error) {
-        return (
-            <h2 style={{textAlign: 'center', color: 'rgb(222, 222, 222)'}}>Error ({error})</h2>
-        )
-    }
-
-    if (!posts.length) {
+function PostList({loading, remove, posts, title}) {
+    if (!loading && !posts.length) {
         return (
             <h2 style={{textAlign: 'center', color: 'rgb(222, 222, 222)'}}>Posts not found...</h2>
         )
